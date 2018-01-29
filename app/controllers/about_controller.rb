@@ -1,5 +1,9 @@
-class AboutController < ApplicationController
+class AboutController < AccountController
   def index
-    # render description on html.erb
+    if current_user
+      render :partial => 'top/authed'
+    else
+      render :partial => 'about/index'
+    end
   end
 end

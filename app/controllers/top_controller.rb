@@ -1,6 +1,14 @@
-class TopController < ApplicationController
+class TopController < AccountController
   def index
-    # render message on erb file
+    if current_user
+      render :partial => 'top/authed'
+    else
+      render :partial => 'top/top'
+    end
+  end
+
+  def complete
+
   end
 end
 
